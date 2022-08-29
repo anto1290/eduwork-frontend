@@ -8,7 +8,7 @@ export const createProduct = async data => {
     fromData.append('description', data.description)
     fromData.append('category', data.category)
     fromData.append('price', data.price)
-    fromData.append('tags', data.tags)
+    data.tags.map((tag, index) => fromData.append('tags[]', tag))
     fromData.append('image', data.image[0])
     return await axios.post(`${BASE_SERVER_URL}/api/products`, fromData, {
         headers: {
@@ -45,7 +45,7 @@ export const updateProduct = async data => {
     fromData.append('description', data.description)
     fromData.append('category', data.category)
     fromData.append('price', data.price)
-    fromData.append('tags', data.tags)
+    data.tags.map((tag, index) => fromData.append('tags[]', tag))
     fromData.append('image', data.image[0])
     return await axios.put(`${BASE_SERVER_URL}/api/products/${data.id}`, fromData, {
         headers: {

@@ -83,9 +83,9 @@ const AddProduct = () => {
                         <Form.Group className="mb-3" controlId="Category">
                             <Form.Label>Category</Form.Label>
                             <CategoryFormSelect
-                                onChange={value => setValue('category', JSON.parse(value))}
+                                onChange={value => updateValue('category', value)}
                                 isInvalid={errors.category}
-                                value={getValues()?.category?.value}
+                                value={getValues()?.category}
                                 name="category"
                             />
                             <Form.Control.Feedback type="invalid">
