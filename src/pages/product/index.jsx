@@ -15,6 +15,7 @@ const Product = () => {
     const [tagsIn, setTegsIn] = useState([])
     const category = searchParams.get('category') || ''
     const { keyword, skip } = useParams();
+    const limit = 10;
     const dispatch = useDispatch()
     const productList = useSelector((state) => state.productList)
     const { loading, error, products, count } = productList
@@ -23,7 +24,7 @@ const Product = () => {
     const listTag = useSelector((state) => state.tagsList)
     const { tags } = listTag
     useEffect(() => {
-        dispatch(listProducts(keyword, skip, category, tagsIn))
+        dispatch(listProducts(keyword, skip, limit, category, tagsIn))
         dispatch(listTags())
     }, [dispatch, skip, keyword, category, tagsIn]);
     const onSetTags = (value) => {

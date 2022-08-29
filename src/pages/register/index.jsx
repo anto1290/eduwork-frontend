@@ -9,7 +9,7 @@ import { registerUser } from '../../api/v1/register'
 const schema = yup.object({
     full_name: yup.string().required('Nama Lengkap harus diisi'),
     email: yup.string().email().required('Email harus valid'),
-    password: yup.string().min(8, 'Minimal panjang password harus 8 karakter').required('Password Harus diisi'),
+    password: yup.string().min(6, 'Minimal panjang password harus 6 karakter').required('Password Harus diisi'),
     password_confirmation: yup.string().oneOf([yup.ref('password'), null], 'Password konfirmasi tidak sama'),
 }).required();
 

@@ -1,7 +1,7 @@
 import axios from "axios"
 import { BASE_SERVER_URL } from "../../config"
 import { PRODUCT_LIST_FAIL, PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS } from '../constants/product'
-export const listProducts = (keyword = '', skip = '', limit = '10', category = '', tagsIn = []) => async (
+export const listProducts = (keyword = '', skip = '', limit = '', category = '', tagsIn = []) => async (
     dispatch
 ) => {
     try {
